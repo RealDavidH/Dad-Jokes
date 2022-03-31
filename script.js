@@ -1,17 +1,15 @@
 let jokeDiv = document.querySelector(".joke_container");
 let firstDiv = document.querySelector(".container");
-
+const options = {
+    method: 'GET',
+    headers: {
+        'X-RapidAPI-Host': 'dad-jokes.p.rapidapi.com',
+        'X-RapidAPI-Key': '9ee8e61b49msh8421405bf627120p1adea9jsn6788a28ace8f'
+    }
+};
 
 
 async function getJoke(){
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Host': 'dad-jokes.p.rapidapi.com',
-            'X-RapidAPI-Key': '9ee8e61b49msh8421405bf627120p1adea9jsn6788a28ace8f'
-        }
-    };
-    
     fetch('https://dad-jokes.p.rapidapi.com/random/joke/png', options)
         .then(response => response.json())
         .then(response => loadJoke(response))
